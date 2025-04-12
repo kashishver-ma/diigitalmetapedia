@@ -26,7 +26,6 @@ const AuthContext = createContext<AuthContextType>({
 });
 
 export const useAuth = () => useContext(AuthContext);
-
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
@@ -37,7 +36,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       email,
       password
     );
-    // Create a user document in Firestore
     await setDoc(doc(db, "users", userCredential.user.uid), {
       name,
       email,
@@ -46,12 +44,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     });
   }
 
-  function login(email: string, password: string) {
-    return signInWithEmailAndPassword(auth, email, password);
+  async function login(email: string, password: string) {
+    await signInWithEmailAndPassword(auth, email, password);
   }
 
-  function logout() {
-    return signOut(auth);
+  async function logout() {
+    await signOut(auth);
   }
 
   useEffect(() => {
@@ -63,7 +61,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return unsubscribe;
   }, []);
 
-  const value = {
+  const value: AuthContextType = {
     currentUser,
     loading,
     login,
