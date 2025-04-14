@@ -10,7 +10,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-12 md:mb-0">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Digital Agency Client Management System
+                Digital Metapedia Client Management System
               </h1>
               <p className="text-xl mb-8">
                 Streamline your client management, track leads, and manage
