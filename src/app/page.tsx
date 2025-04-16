@@ -20,7 +20,7 @@ export default function Home() {
       id: 1,
       name: "Sarah Johnson",
       position: "Marketing Director, TechPro",
-      image: "/client1.jpg",
+      image: "/team3.jpg",
       quote:
         "Digital Metapedia transformed our online presence completely. Our engagement metrics improved by 150% within just three months of working with them.",
       rating: 5,
@@ -29,7 +29,7 @@ export default function Home() {
       id: 2,
       name: "Raj Patel",
       position: "CEO, StyleBrand",
-      image: "/client2.jpg",
+      image: "/team.jpg",
       quote:
         "The strategic approach and attention to detail is what sets this team apart. They don't just execute - they think alongside your business goals.",
       rating: 5,
@@ -38,7 +38,7 @@ export default function Home() {
       id: 3,
       name: "Amelia Chang",
       position: "Founder, HealthFirst",
-      image: "/client3.jpg",
+      image: "/team4.jpg",
       quote:
         "Working with Digital Metapedia was the best decision for our clinic. They understood our unique challenges and created a digital strategy that resonated with our audience.",
       rating: 5,
@@ -150,7 +150,7 @@ export default function Home() {
   const [submitError, setSubmitError] = useState("");
 
   // Handle form input changes
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: any) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -159,7 +159,7 @@ export default function Home() {
   };
 
   // Handle form submission
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     // Form validation
@@ -305,13 +305,13 @@ export default function Home() {
                 Services
               </Link>
               <Link
-                href="#portfolio"
+                href="/portfolio"
                 className="text-gray-800 hover:text-red-600 transition-colors"
               >
                 Portfolio
               </Link>
               <Link
-                href="#about"
+                href="/about"
                 className="text-gray-800 hover:text-red-600 transition-colors"
               >
                 About Us
@@ -438,7 +438,7 @@ export default function Home() {
                     href="#contact"
                     className="bg-red-600 text-white px-8 py-4 rounded-md font-bold hover:bg-red-700 transition flex items-center group"
                   >
-                    Get Started
+                    Join Us Now
                     <ChevronRight
                       size={20}
                       className="ml-2 group-hover:translate-x-1 transition-transform"
@@ -500,6 +500,14 @@ export default function Home() {
                 </Link>
               </div>
             ))}
+          </div>
+          <div className="flex  items-center justify-center mt-8">
+            <Link href="/services">
+              <button className="text-white w-1xl bg-yellow-500 border-2 border-white p-2 rounded-3xl hover:bg-yellow-400">
+                {" "}
+                Explore more &rarr;{" "}
+              </button>{" "}
+            </Link>
           </div>
         </div>
       </section>
@@ -677,7 +685,7 @@ export default function Home() {
       </section>
       {/* // Add this section to your main component */}
       <section id="team" className="py-20 bg-white">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 flex flex-col">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
               Meet Our <span className="text-yellow-500">Team</span>
