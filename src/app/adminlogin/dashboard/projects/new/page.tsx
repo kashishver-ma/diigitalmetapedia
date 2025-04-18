@@ -4,7 +4,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { collection, addDoc, getDocs } from "firebase/firestore";
-import { db } from "../../../../../lib/firebase";
+import { db } from "../../../../../../lib/firebase";
 
 interface Client {
   id: string;
