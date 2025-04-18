@@ -1,13 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, use } from "react";
 import { useRouter } from "next/navigation";
-import { db } from "../../../../../lib/firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { db } from "../../../../../../../lib/firebase";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import Link from "next/link";
 
-export default function AddClient() {
+interface EditClientProps {
+  params: Promise<{
+    clientId: string;
+  }>;
+}
+
+export default function EditClient({ params }: EditClientProps) {
+  // Unwrap the params using React.use()
+  const { clientId } = use(params);
   const router = useRouter();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -17,8 +26,39 @@ export default function AddClient() {
     website: "",
     notes: "",
   });
-  const [loading, setLoading] = useState(false);
+
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    async function fetchClient() {
+      try {
+        const clientDoc = await getDoc(doc(db, "clients", clientId));
+        if (clientDoc.exists()) {
+          const data = clientDoc.data();
+          setFormData({
+            name: data.name || "",
+            email: data.email || "",
+            phone: data.phone || "",
+            company: data.company || "",
+            address: data.address || "",
+            website: data.website || "",
+            notes: data.notes || "",
+          });
+        } else {
+          setError("Client not found.");
+        }
+      } catch (err) {
+        console.error(err);
+        setError("Error fetching client.");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    if (clientId) fetchClient();
+  }, [clientId]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -34,34 +74,34 @@ export default function AddClient() {
     e.preventDefault();
 
     try {
-      setLoading(true);
-      setError("");
-
-      // Add timestamp to the client data
-      const clientData = {
+      setSaving(true);
+      await updateDoc(doc(db, "clients", clientId), {
         ...formData,
-        createdAt: new Date(),
-      };
-
-      // Add the client to Firestore
-      await addDoc(collection(db, "clients"), clientData);
-
-      // Redirect to clients list
-      router.push("/dashboard/clients");
-    } catch (error) {
-      console.error("Error adding client:", error);
-      setError("Failed to add client. Please try again.");
+        updatedAt: new Date(),
+      });
+      router.push(`/dashboard/clients/${clientId}`);
+    } catch (err) {
+      console.error(err);
+      setError("Failed to update client.");
     } finally {
-      setLoading(false);
+      setSaving(false);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
+    );
+  }
 
   return (
     <div>
       <div className="mb-6 flex items-center justify-between">
-        <h2 className="text-2xl font-bold text-gray-900">Add New Client</h2>
+        <h2 className="text-2xl font-bold text-gray-900">Edit Client</h2>
         <Link
-          href="/dashboard/clients"
+          href={`/dashboard/clients/${clientId}`}
           className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
         >
           Cancel
@@ -204,10 +244,10 @@ export default function AddClient() {
           <div className="flex justify-end">
             <button
               type="submit"
-              disabled={loading}
+              disabled={saving}
               className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
             >
-              {loading ? "Adding..." : "Add Client"}
+              {saving ? "Saving..." : "Save Changes"}
             </button>
           </div>
         </form>

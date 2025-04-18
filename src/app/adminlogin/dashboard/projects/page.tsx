@@ -10,7 +10,7 @@ import {
   Timestamp,
 } from "firebase/firestore";
 import Link from "next/link";
-import { db } from "../../../../lib/firebase";
+import { db } from "../../../../../lib/firebase";
 
 interface Project {
   id: string;
@@ -105,7 +105,7 @@ export default function ProjectsPage() {
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold">Projects</h1>
-        <Link href="/dashboard/projects/new">
+        <Link href="/adminlogin/dashboard/projects/new">
           <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
             Add New Project
           </button>

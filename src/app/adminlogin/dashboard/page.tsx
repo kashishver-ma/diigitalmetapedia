@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { db } from "../../../lib/firebase";
+import { db } from "../../../../lib/firebase";
 import { collection, getDocs, query, limit } from "firebase/firestore";
 import Link from "next/link";
 
@@ -20,28 +20,28 @@ export default function Dashboard() {
       value: 0,
       description: "All registered clients",
       color: "bg-blue-500",
-      href: "/dashboard/clients",
+      href: "adminlogin/dashboard/clients",
     },
     {
       title: "Active Leads",
       value: 0,
       description: "Leads requiring follow-up",
       color: "bg-green-500",
-      href: "/dashboard/leads",
+      href: "/adminlogin/leads",
     },
     {
       title: "Active Projects",
       value: 0,
       description: "Projects in progress",
       color: "bg-purple-500",
-      href: "/dashboard/projects",
+      href: "/adminlogin/dashboard/projects",
     },
     {
       title: "Newsletter Subscribers",
       value: 0,
       description: "Total subscribers",
       color: "bg-amber-500",
-      href: "/dashboard/newsletters",
+      href: "/adminlogin/dashboard/newsletters",
     },
   ]);
 
@@ -66,28 +66,28 @@ export default function Dashboard() {
             value: clientsSnapshot.size,
             description: "All registered clients",
             color: "bg-blue-500",
-            href: "/dashboard/clients",
+            href: "/adminlogin/dashboard/clients",
           },
           {
             title: "Active Leads",
             value: leadsSnapshot.size,
             description: "Leads requiring follow-up",
             color: "bg-green-500",
-            href: "/dashboard/leads",
+            href: "/adminlogin/dashboard/leads",
           },
           {
             title: "Active Projects",
             value: projectsSnapshot.size,
             description: "Projects in progress",
             color: "bg-purple-500",
-            href: "/dashboard/projects",
+            href: "/adminlogin//projects",
           },
           {
             title: "Newsletter Subscribers",
             value: subscribersSnapshot.size,
             description: "Total subscribers",
             color: "bg-amber-500",
-            href: "/dashboard/newsletters",
+            href: "/adminlogin/dashboard/newsletters",
           },
         ]);
 
@@ -172,7 +172,7 @@ export default function Dashboard() {
               Recent Clients
             </h3>
             <Link
-              href="/dashboard/clients"
+              href="/adminlogin/dashboard/clients"
               className="text-sm font-medium text-blue-600 hover:text-blue-500"
             >
               View all
@@ -194,7 +194,7 @@ export default function Dashboard() {
                       </div>
                       <div>
                         <Link
-                          href={`/dashboard/clients/${client.id}`}
+                          href={`adminlogin/dashboard/clients/${client.id}`}
                           className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-blue-600 hover:bg-blue-700"
                         >
                           View
@@ -208,7 +208,7 @@ export default function Dashboard() {
               <div className="text-center py-8">
                 <p className="text-gray-500">No clients yet</p>
                 <Link
-                  href="/dashboard/clients/new"
+                  href="adminlogin/dashboard/clients/new"
                   className="mt-2 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700"
                 >
                   Add Client
@@ -223,7 +223,7 @@ export default function Dashboard() {
           <div className="px-6 py-5 border-b border-gray-200 flex justify-between items-center">
             <h3 className="text-lg font-medium text-gray-900">Recent Leads</h3>
             <Link
-              href="/dashboard/leads"
+              href="adminlogin/dashboard/leads"
               className="text-sm font-medium text-blue-600 hover:text-blue-500"
             >
               View all
@@ -266,7 +266,7 @@ export default function Dashboard() {
               <div className="text-center py-8">
                 <p className="text-gray-500">No leads yet</p>
                 <Link
-                  href="/dashboard/leads/new"
+                  href="adminlogin/dashboard/leads/new"
                   className="mt-2 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700"
                 >
                   Add Lead

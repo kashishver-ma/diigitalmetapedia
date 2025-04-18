@@ -13,7 +13,7 @@ import { collection, addDoc } from "firebase/firestore";
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [adminMenuOpen, setAdminMenuOpen] = useState(false);
+  // const [adminMenuOpen, setAdminMenuOpen] = useState(false);
   // Testimonials data
   const testimonials = [
     {
@@ -324,31 +324,6 @@ export default function Home() {
               </Link>
 
               {/* Admin access - subtle */}
-              <div className="relative">
-                <button
-                  className="text-gray-500 hover:text-gray-700 text-sm"
-                  onClick={() => setAdminMenuOpen(!adminMenuOpen)}
-                >
-                  Admin
-                </button>
-
-                {adminMenuOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
-                    <Link
-                      href="/dashboard"
-                      className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100"
-                    >
-                      Dashboard
-                    </Link>
-                    <Link
-                      href="/login"
-                      className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100"
-                    >
-                      Login
-                    </Link>
-                  </div>
-                )}
-              </div>
             </div>
           </div>
 
@@ -1042,6 +1017,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section></section>
+
       {/* Footer */}
       <footer className="bg-gray-100 text-black py-12">
         <div className="container mx-auto px-6">
@@ -1166,19 +1144,19 @@ export default function Home() {
             <div className="mt-4 md:mt-0">
               <div className="flex space-x-4">
                 <a
-                  href="#"
+                  href="/privacypolicy"
                   className="text-gray-700 hover:text-yellow-500 transition"
                 >
                   Privacy Policy
                 </a>
                 <a
-                  href="#"
+                  href="/terms"
                   className="text-gray-700 hover:text-yellow-500 transition"
                 >
                   Terms of Service
                 </a>
                 <a
-                  href="#"
+                  href="/sitemap"
                   className="text-gray-700 hover:text-yellow-500 transition"
                 >
                   Sitemap

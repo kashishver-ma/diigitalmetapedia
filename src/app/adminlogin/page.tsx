@@ -20,7 +20,7 @@ export default function Login() {
       setError("");
       setLoading(true);
       await login(email, password);
-      router.push("/dashboard");
+      router.push("/adminlogin/dashboard");
     } catch (error) {
       setError("Failed to sign in. Please check your credentials.");
       console.error(error);
@@ -34,7 +34,7 @@ export default function Login() {
       <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-xl shadow-md">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-gray-900">Welcome back</h2>
-          <p className="mt-2 text-gray-600">Sign in to your account</p>
+          <p className="mt-2 text-gray-600">Log in to your account</p>
         </div>
 
         {error && (
@@ -84,7 +84,7 @@ export default function Login() {
             </div>
           </div>
 
-          <div className="flex items-center justify-between">
+          {/* <div className="flex items-center justify-between">
             <div className="flex items-center">
               <input
                 id="remember-me"
@@ -108,7 +108,7 @@ export default function Login() {
                 Forgot your password?
               </a>
             </div>
-          </div>
+          </div> */}
 
           <div>
             <button
@@ -121,7 +121,7 @@ export default function Login() {
           </div>
         </form>
 
-        <div className="text-center mt-4">
+        {/* <div className="text-center mt-4">
           <p className="text-sm text-gray-600">
             Don't have an account?{" "}
             <Link
@@ -131,7 +131,7 @@ export default function Login() {
               Sign up
             </Link>
           </p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

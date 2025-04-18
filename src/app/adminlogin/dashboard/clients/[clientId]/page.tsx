@@ -2,7 +2,7 @@
 
 import { useState, useEffect, use } from "react";
 import { useRouter } from "next/navigation";
-import { db } from "../../../../../lib/firebase"; // Adjust the import path as needed
+import { db } from "../../../../../../lib/firebase"; // Adjust the import path as needed
 import { doc, getDoc, deleteDoc } from "firebase/firestore";
 import Link from "next/link";
 

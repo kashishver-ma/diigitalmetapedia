@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { db } from "../../../../lib/firebase";
+import { db } from "../../../../../lib/firebase";
 import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import Link from "next/link";
 
@@ -71,7 +71,7 @@ export default function Clients() {
           Clients
         </h2>
         <Link
-          href="/dashboard/clients/new"
+          href="/adminlogin/dashboard/clients/new"
           className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700"
         >
           Add New Client
