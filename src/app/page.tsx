@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../public/dmlogo .jpg";
-import dashboardd from "../../public/dashboard.jpg";
+import dashboardd from "../../public/adminlogin/dashboard.jpg";
 
 import { Menu, X, ChevronRight, ArrowRight } from "lucide-react";
 import { db } from "../../lib/firebase"; // Make sure the path is correct
@@ -643,7 +643,10 @@ export default function Home() {
               <div className="pt-2 border-t border-gray-200">
                 <p className="text-xs text-gray-500 mb-2">Admin Access:</p>
                 <div className="flex space-x-4">
-                  <Link href="/dashboard" className="text-sm text-gray-600">
+                  <Link
+                    href="/adminlogin/dashboard"
+                    className="text-sm text-gray-600"
+                  >
                     Dashboard
                   </Link>
                   <Link href="/login" className="text-sm text-gray-600">
@@ -703,7 +706,7 @@ export default function Home() {
             <div className="md:w-1/2">
               <div className="relative h-80 md:h-96 w-full overflow-hidden rounded-2xl shadow-xl group">
                 <Image
-                  src="/dashboard.jpg"
+                  src="/adminlogin/dashboard.jpg"
                   alt="Digital Marketing Panels"
                   layout="fill"
                   objectFit="cover"

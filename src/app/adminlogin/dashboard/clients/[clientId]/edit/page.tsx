@@ -79,7 +79,7 @@ export default function EditClient({ params }: EditClientProps) {
         ...formData,
         updatedAt: new Date(),
       });
-      router.push(`/dashboard/clients/${clientId}`);
+      router.push(`/adminlogin/dashboard/clients/${clientId}`);
     } catch (err) {
       console.error(err);
       setError("Failed to update client.");
@@ -101,7 +101,7 @@ export default function EditClient({ params }: EditClientProps) {
       <div className="mb-6 flex items-center justify-between">
         <h2 className="text-2xl font-bold text-gray-900">Edit Client</h2>
         <Link
-          href={`/dashboard/clients/${clientId}`}
+          href={`/adminlogin/adminlogin/dashboard/clients/${clientId}`}
           className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
         >
           Cancel

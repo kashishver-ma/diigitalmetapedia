@@ -1,4 +1,4 @@
-// src/app/dashboard/projects/new/page.tsx
+// src/app/adminlogin/dashboard/projects/new/page.tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -88,7 +88,7 @@ export default function NewProjectPage() {
       const docRef = await addDoc(collection(db, "projects"), projectData);
 
       setLoading(false);
-      router.push(`/dashboard/projects/${docRef.id}`);
+      router.push(`/adminlogin/dashboard/projects/${docRef.id}`);
     } catch (error) {
       console.error("Error adding project:", error);
       setLoading(false);

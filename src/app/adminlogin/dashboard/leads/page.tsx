@@ -89,7 +89,7 @@ export default function Leads() {
       <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between">
         <h2 className="text-2xl font-bold text-gray-900 mb-4 sm:mb-0">Leads</h2>
         <Link
-          href="/dashboard/leads/new"
+          href="/adminlogin/dashboard/leads/new"
           className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700"
         >
           Add New Lead

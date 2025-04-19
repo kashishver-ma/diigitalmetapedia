@@ -20,7 +20,7 @@ export default function Dashboard() {
       value: 0,
       description: "All registered clients",
       color: "bg-blue-500",
-      href: "adminlogin/dashboard/clients",
+      href: "adminlogin/adminlogin/dashboard/clients",
     },
     {
       title: "Active Leads",
@@ -34,14 +34,14 @@ export default function Dashboard() {
       value: 0,
       description: "Projects in progress",
       color: "bg-purple-500",
-      href: "/adminlogin/dashboard/projects",
+      href: "/adminlogin/adminlogin/dashboard/projects",
     },
     {
       title: "Newsletter Subscribers",
       value: 0,
       description: "Total subscribers",
       color: "bg-amber-500",
-      href: "/adminlogin/dashboard/newsletters",
+      href: "/adminlogin/adminlogin/dashboard/newsletters",
     },
   ]);
 
@@ -66,14 +66,14 @@ export default function Dashboard() {
             value: clientsSnapshot.size,
             description: "All registered clients",
             color: "bg-blue-500",
-            href: "/adminlogin/dashboard/clients",
+            href: "/adminlogin/adminlogin/dashboard/clients",
           },
           {
             title: "Active Leads",
             value: leadsSnapshot.size,
             description: "Leads requiring follow-up",
             color: "bg-green-500",
-            href: "/adminlogin/dashboard/leads",
+            href: "/adminlogin/adminlogin/dashboard/leads",
           },
           {
             title: "Active Projects",
@@ -87,7 +87,7 @@ export default function Dashboard() {
             value: subscribersSnapshot.size,
             description: "Total subscribers",
             color: "bg-amber-500",
-            href: "/adminlogin/dashboard/newsletters",
+            href: "/adminlogin/adminlogin/dashboard/newsletters",
           },
         ]);
 
@@ -172,7 +172,7 @@ export default function Dashboard() {
               Recent Clients
             </h3>
             <Link
-              href="/adminlogin/dashboard/clients"
+              href="/adminlogin/adminlogin/dashboard/clients"
               className="text-sm font-medium text-blue-600 hover:text-blue-500"
             >
               View all
@@ -194,7 +194,7 @@ export default function Dashboard() {
                       </div>
                       <div>
                         <Link
-                          href={`adminlogin/dashboard/clients/${client.id}`}
+                          href={`adminlogin/adminlogin/dashboard/clients/${client.id}`}
                           className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-blue-600 hover:bg-blue-700"
                         >
                           View
@@ -208,7 +208,7 @@ export default function Dashboard() {
               <div className="text-center py-8">
                 <p className="text-gray-500">No clients yet</p>
                 <Link
-                  href="adminlogin/dashboard/clients/new"
+                  href="adminlogin/adminlogin/dashboard/clients/new"
                   className="mt-2 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700"
                 >
                   Add Client
@@ -223,7 +223,7 @@ export default function Dashboard() {
           <div className="px-6 py-5 border-b border-gray-200 flex justify-between items-center">
             <h3 className="text-lg font-medium text-gray-900">Recent Leads</h3>
             <Link
-              href="adminlogin/dashboard/leads"
+              href="adminlogin/adminlogin/dashboard/leads"
               className="text-sm font-medium text-blue-600 hover:text-blue-500"
             >
               View all
@@ -266,7 +266,7 @@ export default function Dashboard() {
               <div className="text-center py-8">
                 <p className="text-gray-500">No leads yet</p>
                 <Link
-                  href="adminlogin/dashboard/leads/new"
+                  href="adminlogin/adminlogin/dashboard/leads/new"
                   className="mt-2 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700"
                 >
                   Add Lead

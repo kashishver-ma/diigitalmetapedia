@@ -1,4 +1,4 @@
-// src/app/dashboard/projects/[projectId]/page.tsx
+// src/app/adminlogin/dashboard/projects/[projectId]/page.tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -73,7 +73,7 @@ export default function ProjectDetailPage({
         const projectDoc = await getDoc(doc(db, "projects", projectId));
 
         if (!projectDoc.exists()) {
-          router.push("/dashboard/projects");
+          router.push("/adminlogin/dashboard/projects");
           return;
         }
 
@@ -124,7 +124,7 @@ export default function ProjectDetailPage({
     if (window.confirm("Are you sure you want to delete this project?")) {
       try {
         await deleteDoc(doc(db, "projects", projectId));
-        router.push("/dashboard/projects");
+        router.push("/adminlogin/dashboard/projects");
       } catch (error) {
         console.error("Error deleting project:", error);
       }
@@ -177,7 +177,7 @@ export default function ProjectDetailPage({
     return (
       <div className="p-6">
         <p>Project not found. It may have been deleted.</p>
-        <Link href="/dashboard/projects">
+        <Link href="/adminlogin/dashboard/projects">
           <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
             Back to Projects
           </button>
@@ -191,7 +191,7 @@ export default function ProjectDetailPage({
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold">{project.title}</h1>
         <div className="flex space-x-3">
-          <Link href={`/dashboard/projects/${projectId}/edit`}>
+          <Link href={`/adminlogin/dashboard/projects/${projectId}/edit`}>
             <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
               Edit Project
             </button>
@@ -226,7 +226,7 @@ export default function ProjectDetailPage({
                 <p className="text-sm text-gray-500">Client</p>
                 <p className="font-medium">
                   {client ? (
-                    <Link href={`/dashboard/clients/${client.id}`}>
+                    <Link href={`/adminlogin/dashboard/clients/${client.id}`}>
                       <span className="text-blue-600 hover:underline">
                         {client.name} - {client.company}
                       </span>
@@ -282,7 +282,9 @@ export default function ProjectDetailPage({
           <div className="bg-white p-6 rounded-lg shadow">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-semibold">Tasks</h2>
-              <Link href={`/dashboard/projects/${projectId}/tasks/new`}>
+              <Link
+                href={`/adminlogin/dashboard/projects/${projectId}/tasks/new`}
+              >
                 <button className="px-3 py-1 bg-blue-100 text-blue-600 rounded hover:bg-blue-200 transition text-sm">
                   Add Task
                 </button>

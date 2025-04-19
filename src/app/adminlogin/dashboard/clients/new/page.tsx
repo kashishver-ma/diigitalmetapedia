@@ -47,7 +47,7 @@ export default function AddClient() {
       await addDoc(collection(db, "clients"), clientData);
 
       // Redirect to clients list
-      router.push("/dashboard/clients");
+      router.push("/adminlogin/dashboard/clients");
     } catch (error) {
       console.error("Error adding client:", error);
       setError("Failed to add client. Please try again.");
@@ -61,7 +61,7 @@ export default function AddClient() {
       <div className="mb-6 flex items-center justify-between">
         <h2 className="text-2xl font-bold text-gray-900">Add New Client</h2>
         <Link
-          href="/dashboard/clients"
+          href="/adminlogin/dashboard/clients"
           className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
         >
           Cancel

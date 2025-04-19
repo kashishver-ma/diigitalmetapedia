@@ -85,7 +85,7 @@ export default function ClientDetails({ params }: ClientDetailsProps) {
       try {
         // Delete the client document from Firestore
         await deleteDoc(doc(db, "clients", clientId));
-        router.push("/dashboard/clients");
+        router.push("/adminlogin/dashboard/clients");
       } catch (error) {
         console.error("Error deleting client:", error);
         setError("Failed to delete client");
@@ -106,7 +106,7 @@ export default function ClientDetails({ params }: ClientDetailsProps) {
       <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded">
         <p className="text-red-700">{error}</p>
         <Link
-          href="/dashboard/clients"
+          href="/adminlogin/dashboard/clients"
           className="text-blue-600 hover:text-blue-800 mt-2 inline-block"
         >
           Back to Clients
@@ -120,7 +120,7 @@ export default function ClientDetails({ params }: ClientDetailsProps) {
       <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded">
         <p className="text-yellow-700">Client data is not available</p>
         <Link
-          href="/dashboard/clients"
+          href="/adminlogin/dashboard/clients"
           className="text-blue-600 hover:text-blue-800 mt-2 inline-block"
         >
           Back to Clients
@@ -137,7 +137,7 @@ export default function ClientDetails({ params }: ClientDetailsProps) {
         </h2>
         <div className="flex space-x-3">
           <Link
-            href={`/dashboard/clients/${clientId}/edit`}
+            href={`/adminlogin/dashboard/clients/${clientId}/edit`}
             className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700"
           >
             Edit Client
@@ -149,7 +149,7 @@ export default function ClientDetails({ params }: ClientDetailsProps) {
             Delete Client
           </button>
           <Link
-            href="/dashboard/clients"
+            href="/adminlogin/dashboard/clients"
             className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
           >
             Back to List

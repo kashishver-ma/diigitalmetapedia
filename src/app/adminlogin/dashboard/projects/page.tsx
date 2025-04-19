@@ -1,4 +1,4 @@
-// src/app/dashboard/projects/page.tsx
+// src/app/adminlogin/dashboard/projects/page.tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -181,12 +181,16 @@ export default function ProjectsPage() {
                   </td>
                   <td className="py-2 px-4 border">
                     <div className="flex space-x-2">
-                      <Link href={`/dashboard/projects/${project.id}`}>
+                      <Link
+                        href={`/adminlogin/dashboard/projects/${project.id}`}
+                      >
                         <button className="bg-blue-100 text-blue-600 px-3 py-1 rounded hover:bg-blue-200 transition">
                           View
                         </button>
                       </Link>
-                      <Link href={`/dashboard/projects/${project.id}/edit`}>
+                      <Link
+                        href={`/adminlogin/dashboard/projects/${project.id}/edit`}
+                      >
                         <button className="bg-green-100 text-green-600 px-3 py-1 rounded hover:bg-green-200 transition">
                           Edit
                         </button>

@@ -71,7 +71,7 @@ export default function Clients() {
           Clients
         </h2>
         <Link
-          href="/adminlogin/dashboard/clients/new"
+          href="/adminlogin/adminlogin/dashboard/clients/new"
           className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700"
         >
           Add New Client
@@ -173,13 +173,13 @@ export default function Clients() {
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                       <div className="flex justify-end space-x-2">
                         <Link
-                          href={`/dashboard/clients/${client.id}`}
+                          href={`/adminlogin/dashboard/clients/${client.id}`}
                           className="text-blue-600 hover:text-blue-900"
                         >
                           View
                         </Link>
                         <Link
-                          href={`/dashboard/clients/${client.id}/edit`}
+                          href={`/adminlogin/dashboard/clients/${client.id}/edit`}
                           className="text-indigo-600 hover:text-indigo-900"
                         >
                           Edit
