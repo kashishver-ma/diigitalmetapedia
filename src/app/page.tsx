@@ -244,6 +244,9 @@ export default function Home() {
     },
   ];
 
+  // Add this with your other state variables at the top of your component
+  const [mobileDropdown, setMobileDropdown] = useState<null | string>(null);
+
   // Handle scroll effect for navbar
   useEffect(() => {
     const handleScroll = () => {
@@ -298,24 +301,136 @@ export default function Home() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              <Link
-                href="/services"
-                className="text-gray-800 hover:text-red-600 transition-colors"
-              >
-                Services
-              </Link>
-              <Link
-                href="/portfolio"
-                className="text-gray-800 hover:text-red-600 transition-colors"
-              >
-                Portfolio
-              </Link>
-              <Link
-                href="/about"
-                className="text-gray-800 hover:text-red-600 transition-colors"
-              >
-                About Us
-              </Link>
+              {/* Services Dropdown */}
+              <div className="relative group">
+                <button className="flex items-center text-gray-800 hover:text-red-600 transition-colors">
+                  Services
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 ml-1"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </button>
+                <div className="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                  <Link
+                    href="/landingprops/services/web-development"
+                    className="block px-4 py-2 text-gray-800 hover:bg-red-50 hover:text-red-600"
+                  >
+                    Web Development
+                  </Link>
+                  <Link
+                    href="/landingprops/services/app-development"
+                    className="block px-4 py-2 text-gray-800 hover:bg-red-50 hover:text-red-600"
+                  >
+                    App Development
+                  </Link>
+                  <Link
+                    href="/services/digital-marketing"
+                    className="block px-4 py-2 text-gray-800 hover:bg-red-50 hover:text-red-600"
+                  >
+                    Digital Marketing
+                  </Link>
+                  <Link
+                    href="/landingprops/services/ui-ux-design"
+                    className="block px-4 py-2 text-gray-800 hover:bg-red-50 hover:text-red-600"
+                  >
+                    UI/UX Design
+                  </Link>
+                  <Link
+                    href="/landingprops/services/socialmedia-marketing"
+                    className="block px-4 py-2 text-gray-800 hover:bg-red-50 hover:text-red-600"
+                  >
+                    Social media marketing
+                  </Link>
+                </div>
+              </div>
+
+              {/* Portfolio Dropdown */}
+              <div className="relative group">
+                <button className="flex items-center text-gray-800 hover:text-red-600 transition-colors">
+                  Portfolio
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 ml-1"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </button>
+                <div className="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                  <Link
+                    href="/landingprops/portfolio/websites"
+                    className="block px-4 py-2 text-gray-800 hover:bg-red-50 hover:text-red-600"
+                  >
+                    Websites
+                  </Link>
+                  <Link
+                    href="/landingprops/portfolio/mobile-apps"
+                    className="block px-4 py-2 text-gray-800 hover:bg-red-50 hover:text-red-600"
+                  >
+                    Mobile Apps
+                  </Link>
+                  <Link
+                    href="/landingprops/portfolio/case-studies"
+                    className="block px-4 py-2 text-gray-800 hover:bg-red-50 hover:text-red-600"
+                  >
+                    Case Studies
+                  </Link>
+                </div>
+              </div>
+
+              {/* About Us Dropdown */}
+              <div className="relative group">
+                <button className="flex items-center text-gray-800 hover:text-red-600 transition-colors">
+                  About Us
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 ml-1"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </button>
+                <div className="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                  <Link
+                    href="/landingprops/about/team"
+                    className="block px-4 py-2 text-gray-800 hover:bg-red-50 hover:text-red-600"
+                  >
+                    Our Team
+                  </Link>
+                  <Link
+                    href="/landingprops/about/company"
+                    className="block px-4 py-2 text-gray-800 hover:bg-red-50 hover:text-red-600"
+                  >
+                    Company
+                  </Link>
+                  <Link
+                    href="/landingprops/about/history"
+                    className="block px-4 py-2 text-gray-800 hover:bg-red-50 hover:text-red-600"
+                  >
+                    Our History
+                  </Link>
+                </div>
+              </div>
+
+              {/* Contact without dropdown */}
               <Link
                 href="#contact"
                 className="text-gray-800 hover:text-red-600 transition-colors"
@@ -331,32 +446,191 @@ export default function Home() {
           <div
             className={`md:hidden absolute top-full left-0 right-0 bg-white shadow-lg transition-all duration-300 ${
               menuOpen
-                ? "max-h-96 opacity-100"
+                ? "max-h-screen opacity-100"
                 : "max-h-0 opacity-0 overflow-hidden"
             }`}
           >
             <div className="container mx-auto px-6 py-4 flex flex-col space-y-4">
-              <Link
-                href="/services"
-                className="text-gray-800 hover:text-red-600 transition-colors"
-                onClick={() => setMenuOpen(false)}
-              >
-                Services
-              </Link>
-              <Link
-                href="#portfolio"
-                className="text-gray-800 hover:text-red-600 transition-colors"
-                onClick={() => setMenuOpen(false)}
-              >
-                Portfolio
-              </Link>
-              <Link
-                href="#about"
-                className="text-gray-800 hover:text-red-600 transition-colors"
-                onClick={() => setMenuOpen(false)}
-              >
-                About Us
-              </Link>
+              {/* Services Dropdown Mobile */}
+              <div className="space-y-2">
+                <button
+                  onClick={() =>
+                    setMobileDropdown(
+                      mobileDropdown === "services" ? null : "services"
+                    )
+                  }
+                  className="flex items-center justify-between w-full text-left text-gray-800 hover:text-red-600 transition-colors"
+                >
+                  <span>Services</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className={`h-4 w-4 transition-transform ${
+                      mobileDropdown === "services" ? "rotate-180" : ""
+                    }`}
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </button>
+                <div
+                  className={`pl-4 space-y-2 border-l border-gray-200 ${
+                    mobileDropdown === "services" ? "block" : "hidden"
+                  }`}
+                >
+                  <Link
+                    href="/landingprops/services/web-development"
+                    className="block text-gray-700 hover:text-red-600"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Web Development
+                  </Link>
+                  <Link
+                    href="/landingprops/services/app-development"
+                    className="block text-gray-700 hover:text-red-600"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    App Development
+                  </Link>
+                  <Link
+                    href="/landingprops/services/digital-marketing"
+                    className="block text-gray-700 hover:text-red-600"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Digital Marketing
+                  </Link>
+                  <Link
+                    href="/landingprops/services/ui-ux-design"
+                    className="block text-gray-700 hover:text-red-600"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    UI/UX Design
+                  </Link>
+                  <Link
+                    href="/landingprops/services/socialmedia-marketing"
+                    className="block text-gray-700 hover:text-red-600"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Social Media Marketing
+                  </Link>
+                </div>
+              </div>
+
+              {/* Portfolio Dropdown Mobile */}
+              <div className="space-y-2">
+                <button
+                  onClick={() =>
+                    setMobileDropdown(
+                      mobileDropdown === "portfolio" ? null : "portfolio"
+                    )
+                  }
+                  className="flex items-center justify-between w-full text-left text-gray-800 hover:text-red-600 transition-colors"
+                >
+                  <span>Portfolio</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className={`h-4 w-4 transition-transform ${
+                      mobileDropdown === "portfolio" ? "rotate-180" : ""
+                    }`}
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </button>
+                <div
+                  className={`pl-4 space-y-2 border-l border-gray-200 ${
+                    mobileDropdown === "portfolio" ? "block" : "hidden"
+                  }`}
+                >
+                  <Link
+                    href="/landingprops/portfolio/websites"
+                    className="block text-gray-700 hover:text-red-600"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Websites
+                  </Link>
+                  <Link
+                    href="/landingprops/portfolio/mobile-apps"
+                    className="block text-gray-700 hover:text-red-600"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Mobile Apps
+                  </Link>
+                  <Link
+                    href="/landingprops/portfolio/case-studies"
+                    className="block text-gray-700 hover:text-red-600"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Case Studies
+                  </Link>
+                </div>
+              </div>
+
+              {/* About Us Dropdown Mobile */}
+              <div className="space-y-2">
+                <button
+                  onClick={() =>
+                    setMobileDropdown(
+                      mobileDropdown === "about" ? null : "about"
+                    )
+                  }
+                  className="flex items-center justify-between w-full text-left text-gray-800 hover:text-red-600 transition-colors"
+                >
+                  <span>About Us</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className={`h-4 w-4 transition-transform ${
+                      mobileDropdown === "about" ? "rotate-180" : ""
+                    }`}
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </button>
+                <div
+                  className={`pl-4 space-y-2 border-l border-gray-200 ${
+                    mobileDropdown === "about" ? "block" : "hidden"
+                  }`}
+                >
+                  <Link
+                    href="/landingprops/about/team"
+                    className="block text-gray-700 hover:text-red-600"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Our Team
+                  </Link>
+                  <Link
+                    href="/landingprops/about/company"
+                    className="block text-gray-700 hover:text-red-600"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Company
+                  </Link>
+                  <Link
+                    href="/landingprops/about/history"
+                    className="block text-gray-700 hover:text-red-600"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Our History
+                  </Link>
+                </div>
+              </div>
+
+              {/* Contact - No dropdown */}
               <Link
                 href="#contact"
                 className="text-gray-800 hover:text-red-600 transition-colors"
@@ -381,6 +655,7 @@ export default function Home() {
           </div>
         </div>
       </nav>
+
       {/* Hero Section with Animation */}
       <header className="relative pt-24 pb-20 md:pt-32 md:pb-28 bg-white overflow-hidden">
         {/* Animated Shapes */}
@@ -464,7 +739,7 @@ export default function Home() {
                 </h3>
                 <p className="text-gray-600">{service.description}</p>
                 <Link
-                  href="/services"
+                  href="/landingprops/services"
                   className="inline-flex items-center mt-4 text-yellow-500 hover:text-yellow-600 transition-colors group"
                 >
                   Learn more{" "}
@@ -477,7 +752,7 @@ export default function Home() {
             ))}
           </div>
           <div className="flex  items-center justify-center mt-8">
-            <Link href="/services">
+            <Link href="landingprops/services">
               <button className="text-white w-1xl bg-yellow-500 border-2 border-white p-2 rounded-3xl hover:bg-yellow-400">
                 {" "}
                 Explore more &rarr;{" "}
@@ -1041,7 +1316,7 @@ export default function Home() {
                 <ul className="space-y-2">
                   <li>
                     <a
-                      href="/services"
+                      href="/landingprops/services"
                       className="text-gray-700 hover:text-yellow-500 transition"
                     >
                       Services
@@ -1049,7 +1324,7 @@ export default function Home() {
                   </li>
                   <li>
                     <a
-                      href="#portfolio"
+                      href="/landingprops/portfolio"
                       className="text-gray-700 hover:text-yellow-500 transition"
                     >
                       Portfolio
@@ -1057,7 +1332,7 @@ export default function Home() {
                   </li>
                   <li>
                     <a
-                      href="#about"
+                      href="/landingprops/about"
                       className="text-gray-700 hover:text-yellow-500 transition"
                     >
                       About Us
@@ -1080,7 +1355,7 @@ export default function Home() {
                 <ul className="space-y-2">
                   <li>
                     <a
-                      href="#"
+                      href="/landinprops/services/socialmedia-marketing"
                       className="text-gray-700 hover:text-yellow-500 transition"
                     >
                       Social Media
@@ -1088,7 +1363,7 @@ export default function Home() {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/landingprops/services/digital-marketing"
                       className="text-gray-700 hover:text-yellow-500 transition"
                     >
                       SEO
@@ -1096,7 +1371,7 @@ export default function Home() {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/landingprops/services/ui-ux-design"
                       className="text-gray-700 hover:text-yellow-500 transition"
                     >
                       Content Creation
@@ -1104,7 +1379,7 @@ export default function Home() {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/landingprops/services/digital-marketing"
                       className="text-gray-700 hover:text-yellow-500 transition"
                     >
                       Email Marketing

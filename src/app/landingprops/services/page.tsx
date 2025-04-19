@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import Link from "next/link"; // Import Link component for routing
 
 const services = [
   {
@@ -15,6 +18,7 @@ const services = [
     ],
     importance:
       "A strong strategy saves time and money, focuses your efforts, and helps you stand out in a crowded digital space.",
+    link: "/landingprops/services/digital-marketing", // Link to Digital Marketing page
   },
   {
     icon: "🎯",
@@ -30,6 +34,7 @@ const services = [
     ],
     importance:
       "Social media humanizes your brand and drives real-time engagement, trust, and conversions.",
+    link: "/landingprops/services/socialmedia-marketing", // Link to Digital Marketing page
   },
   {
     icon: "📈",
@@ -45,6 +50,7 @@ const services = [
     ],
     importance:
       "75% of users never scroll past the first page. SEO gets you there — and keeps you there.",
+    link: "/landingprops/services/web-development", // Link to Web Development page
   },
   {
     icon: "✏️",
@@ -60,6 +66,36 @@ const services = [
     ],
     importance:
       "Quality content builds trust, boosts SEO, and keeps your audience coming back for more.",
+    link: "/landingprops/services/ui-ux-design", // Link to UI/UX Design page
+  },
+  // Adding new services cards for Web Development, App Development, Digital Marketing, and UI/UX Design
+  {
+    icon: "🌐",
+    title: "Web Development",
+    overview:
+      "We build responsive, SEO-friendly websites that meet your business goals. From custom solutions to CMS development, we handle all aspects of web development.",
+    link: "/landingprops/services/web-development", // Link to Web Development page
+  },
+  {
+    icon: "📱",
+    title: "App Development",
+    overview:
+      "Our team develops innovative, user-friendly mobile apps tailored to your business needs. We build both iOS and Android apps that deliver seamless user experiences.",
+    link: "/nav/app-development", // Link to App Development page
+  },
+  {
+    icon: "📊",
+    title: "Digital Marketing",
+    overview:
+      "We help you grow your online presence with strategies that include SEO, paid advertising, email marketing, and more, targeting the right audience at the right time.",
+    link: "/digital-marketing", // Link to Digital Marketing page
+  },
+  {
+    icon: "🎨",
+    title: "UI/UX Design",
+    overview:
+      "We create visually stunning and user-centric designs that offer intuitive navigation and seamless user experiences. Our designs turn visitors into loyal customers.",
+    link: "/landingprops/services/ui-ux-design", // Link to UI/UX Design page
   },
 ];
 
@@ -74,7 +110,7 @@ const Services = () => {
         and reach your target audience effectively.
       </p>
 
-      <div className="grid gap-10 md:grid-cols-2">
+      <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
         {services.map((service, index) => (
           <div
             key={index}
@@ -85,16 +121,12 @@ const Services = () => {
               {service.title}
             </h2>
             <p className="text-gray-700 mb-4">{service.overview}</p>
-            <h3 className="font-medium text-yellow-700 mb-2">What we offer:</h3>
-            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
-              {service.features.map((feature, idx) => (
-                <li key={idx}>{feature}</li>
-              ))}
-            </ul>
-            <h3 className="font-medium text-yellow-700 mb-1">
-              Why it matters:
-            </h3>
-            <p className="text-gray-700">{service.importance}</p>
+            <Link
+              href={service.link}
+              className="text-yellow-600 mt-4 inline-block text-lg font-semibold hover:underline"
+            >
+              Read More
+            </Link>
           </div>
         ))}
       </div>
