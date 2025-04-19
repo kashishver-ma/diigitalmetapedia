@@ -657,36 +657,37 @@ export default function Home() {
       </nav>
 
       {/* Hero Section with Animation */}
-      <header className="relative pt-24 pb-20 md:pt-32 md:pb-28 bg-white overflow-hidden">
-        {/* Animated Shapes */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-16 -left-16 w-64 h-64 bg-red-600 rounded-full opacity-10 animate-pulse"></div>
+      <header className="relative pt-24 pb-20 md:pt-32 md:pb-28 bg-gradient-to-br from-white via-gray-100 to-blue-200 overflow-hidden">
+        {/* Animated & Gradient Shapes */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-20 -left-20 w-72 h-72 bg-gradient-to-tr from-red-500 to-yellow-500 rounded-full opacity-20 blur-3xl animate-ping"></div>
           <div
-            className="absolute top-40 right-20 w-40 h-40 bg-yellow-400 rounded-full opacity-10 animate-pulse"
+            className="absolute top-48 right-24 w-48 h-48 bg-yellow-400 rounded-full opacity-10 blur-xl animate-bounce"
             style={{ animationDelay: "1s" }}
           ></div>
           <div
-            className="absolute bottom-10 left-1/4 w-52 h-52 bg-red-500 rounded-full opacity-10 animate-pulse"
+            className="absolute bottom-12 left-1/4 w-64 h-64 bg-red-400 rounded-full opacity-20 blur-xl animate-pulse"
             style={{ animationDelay: "2s" }}
           ></div>
         </div>
 
-        <div className="container mx-auto px-6 relative">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 mb-12 md:mb-0 relative z-10">
-              <div className="animate-fadeIn">
-                <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-gray-900">
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="flex flex-col md:flex-row items-center justify-between">
+            {/* Text Section */}
+            <div className="md:w-1/2 mb-12 md:mb-0">
+              <div className="animate-fadeInUp space-y-6">
+                <h1 className="text-5xl md:text-6xl font-extrabold leading-tight text-gray-900 tracking-tight">
                   We Make <span className="text-red-600">Digital</span>{" "}
                   <span className="text-yellow-500">Magic</span> Happen
                 </h1>
-                <p className="text-xl mb-8 text-gray-700 max-w-lg">
+                <p className="text-xl text-gray-700 max-w-md">
                   Transform your brand with cutting-edge digital strategies that
                   deliver real results and outshine your competition.
                 </p>
                 <div className="flex space-x-4">
                   <Link
                     href="#contact"
-                    className="bg-red-600 text-white px-8 py-4 rounded-md font-bold hover:bg-red-700 transition flex items-center group"
+                    className="bg-red-600 text-white px-8 py-4 rounded-lg font-bold shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300 flex items-center group"
                   >
                     Join Us Now
                     <ChevronRight
@@ -698,21 +699,23 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="md:w-1/2 relative z-10">
-              {/* The three-panel image */}
-              <div className="relative h-80 md:h-96 w-full overflow-hidden rounded-lg animate-fadeInUp">
+            {/* Image Section */}
+            <div className="md:w-1/2">
+              <div className="relative h-80 md:h-96 w-full overflow-hidden rounded-2xl shadow-xl group">
                 <Image
-                  src={dashboardd}
+                  src="/dashboard.jpg"
                   alt="Digital Marketing Panels"
                   layout="fill"
                   objectFit="cover"
-                  className="rounded-lg transform hover:scale-105 transition-transform duration-700"
+                  className="rounded-2xl transition-transform duration-700 ease-in-out group-hover:scale-105 group-hover:rotate-1"
                 />
+                <div className="absolute inset-0  bg-opacity-2  rounded-2xl group-hover:bg-opacity-0 transition-all duration-500"></div>
               </div>
             </div>
           </div>
         </div>
       </header>
+
       {/* Services Section */}
       <section id="services" className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
@@ -782,7 +785,7 @@ export default function Home() {
                 className="relative group overflow-hidden rounded-lg h-64 cursor-pointer shadow-md"
               >
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-yellow-500 opacity-40 group-hover:opacity-20 transition-opacity z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-red-200 to-yellow-200 opacity-40 group-hover:opacity-20 transition-opacity z-10" />
 
                 {/* Image */}
                 <div className="absolute inset-0 z-0">
@@ -796,11 +799,11 @@ export default function Home() {
                 </div>
 
                 {/* Text */}
-                <div className="absolute inset-0 flex flex-col justify-end p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-300 z-20">
-                  <h3 className="text-xl font-bold text-white mb-2">
+                <div className="  absolute inset-0 flex flex-col justify-end p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-300 z-20">
+                  <h3 className="text-xl font-bold text-amber-950 mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-white mb-3 opacity-0 group-hover:opacity-100 transition-opacity delay-100">
+                  <p className=" rounded text-gray-700 mb-3 opacity-0 group-hover:opacity-100 transition-opacity delay-100">
                     {project.description}
                   </p>
                   <a
@@ -934,8 +937,11 @@ export default function Home() {
         </div>
       </section>
       {/* // Add this section to your main component */}
-      <section id="team" className="py-20 bg-white">
-        <div className="container mx-auto px-6 flex flex-col">
+      <section
+        id="team"
+        className="py-20  bg-gradient-to-br from-gray-200 via-red-50 to-yellow-50"
+      >
+        <div className="container mx-auto px-6 flex flex-col ">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
               Meet Our <span className="text-yellow-500">Team</span>
@@ -1293,7 +1299,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section></section>
+      {/* <section></section> */}
 
       {/* Footer */}
       <footer className="bg-gray-100 text-black py-12">
@@ -1442,6 +1448,7 @@ export default function Home() {
         </div>
       </footer>
       {/* Animation styles */}
+
       <style jsx global>{`
         @keyframes pulse {
           0% {
