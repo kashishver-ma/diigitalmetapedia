@@ -263,11 +263,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden">
       {/* Navbar */}
-      <nav
-        className={`fixed w-full z-50 transition-all duration-300 ${
-          scrolled ? "py-2 bg-white shadow-lg" : "py-4 bg-transparent"
-        }`}
-      >
+      <nav className="fixed w-full z-50 transition-all duration-300 py-2 text-white font-bold bg-gray-600 shadow-lg">
         <div className="container mx-auto px-6 relative">
           <div className="flex justify-between items-center">
             <div className="flex items-center">
@@ -304,7 +300,7 @@ export default function Home() {
             <div className="hidden md:flex items-center space-x-8">
               {/* Services Dropdown */}
               <div className="relative group">
-                <button className="flex items-center text-gray-800 hover:text-red-600 transition-colors">
+                <button className="flex items-center text-white hover:text-red-600 transition-colors">
                   Services
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -355,7 +351,7 @@ export default function Home() {
 
               {/* Portfolio Dropdown */}
               <div className="relative group">
-                <button className="flex items-center text-gray-800 hover:text-red-600 transition-colors">
+                <button className="flex items-center text-white hover:text-red-600 transition-colors">
                   Portfolio
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -372,17 +368,17 @@ export default function Home() {
                 </button>
                 <div className="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                   <Link
-                    href="/landingprops/portfolio/websites"
+                    href="/landingprops/portfolio"
                     className="block px-4 py-2 text-gray-800 hover:bg-red-50 hover:text-red-600"
                   >
-                    Websites
+                    Explore
                   </Link>
-                  <Link
+                  {/* <Link
                     href="/landingprops/portfolio/mobile-apps"
                     className="block px-4 py-2 text-gray-800 hover:bg-red-50 hover:text-red-600"
                   >
                     Mobile Apps
-                  </Link>
+                  </Link> */}
                   <Link
                     href="/landingprops/portfolio/case-studies"
                     className="block px-4 py-2 text-gray-800 hover:bg-red-50 hover:text-red-600"
@@ -394,7 +390,7 @@ export default function Home() {
 
               {/* About Us Dropdown */}
               <div className="relative group">
-                <button className="flex items-center text-gray-800 hover:text-red-600 transition-colors">
+                <button className="flex items-center text-white hover:text-red-600 transition-colors">
                   About Us
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -409,6 +405,7 @@ export default function Home() {
                     />
                   </svg>
                 </button>
+
                 <div className="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                   <Link
                     href="/landingprops/about/team"
@@ -434,16 +431,17 @@ export default function Home() {
               {/* Contact without dropdown */}
               <Link
                 href="#contact"
-                className="text-gray-800 hover:text-red-600 transition-colors"
+                className="text-white hover:text-red-600 transition-colors"
               >
                 Contact
               </Link>
 
               <Link
                 href="/landingprops/teaser"
-                className="text-gray-800 hover:text-red-600 transition-colors"
+                className="relative group inline-block px-4 py-2 font-semibold text-white bg-gradient-to-r from-red-500 to-pink-500 rounded-xl shadow-md transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl"
               >
-                Teaser
+                <span className="relative z-10">Free Strategy</span>
+                <span className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition duration-300 bg-white/20 blur-sm"></span>
               </Link>
 
               {/* Admin access - subtle */}
@@ -566,13 +564,13 @@ export default function Home() {
                   >
                     Websites
                   </Link>
-                  <Link
+                  {/* <Link
                     href="/landingprops/portfolio/mobile-apps"
                     className="block text-gray-700 hover:text-red-600"
                     onClick={() => setMenuOpen(false)}
                   >
                     Mobile Apps
-                  </Link>
+                  </Link> */}
                   <Link
                     href="/landingprops/portfolio/case-studies"
                     className="block text-gray-700 hover:text-red-600"
@@ -776,8 +774,8 @@ export default function Home() {
         </div>
       </section>
       {/* Portfolio Section */}
-      <section id="portfolio" className="py-20 bg-white">
-        <div className="container mx-auto px-6">
+      <section id="portfolio" className="py-20  bg-gray-100 ">
+        <div className="container  mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
               Our <span className="text-red-600">Work</span>
@@ -908,14 +906,14 @@ export default function Home() {
         </div>
       </section>
       {/* // Add this section to your main component */}
-      <section id="process" className="py-20 bg-gray-50">
+      <section id="process" className="py-20 bg-gray-100">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
               Our <span className="text-red-600">Process</span>
             </h2>
             <div className="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
-            <p className="text-gray-700 max-w-2xl mx-auto">
+            <p className="text-gray-900 max-w-2xl mx-auto">
               We follow a systematic approach to ensure every project delivers
               exceptional results.
             </p>
@@ -948,10 +946,7 @@ export default function Home() {
         </div>
       </section>
       {/* // Add this section to your main component */}
-      <section
-        id="team"
-        className="py-20  bg-gradient-to-br from-gray-200 via-red-50 to-yellow-50"
-      >
+      <section id="team" className="py-20 bg-gray-50  ">
         <div className="container mx-auto px-6 flex flex-col ">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
@@ -1039,7 +1034,7 @@ export default function Home() {
         </div>
       </section>
       {/* // Add this section to your main component */}
-      <section id="testimonials" className="py-20 bg-gray-50">
+      <section id="testimonials" className="py-20 bg-gray-100">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
@@ -1116,6 +1111,7 @@ export default function Home() {
             </h2>
 
             <div className="w-24 h-1 flex justify-center bg-red-600 mx-auto mb-6"></div>
+
             <p className="text-gray-700 max-w-2xl mx-auto">
               Ready to take your digital presence to the next level? Let's talk
               about your project and how we can help.
@@ -1311,6 +1307,19 @@ export default function Home() {
                           <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                         </svg>
                       </a>
+                      <a
+                        href="mailto:digitalmetapedia@gmail.com"
+                        className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-red-600 hover:text-white hover:border-red-600 transition"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 18V8l8 5 8-5v10H4z" />
+                        </svg>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -1323,14 +1332,14 @@ export default function Home() {
       {/* <section></section> */}
 
       {/* Footer */}
-      <footer className="bg-gray-100 text-black py-12">
+      <footer className="bg-gray-800 text-white py-12">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between">
             <div className="mb-8 md:mb-0">
               <h3 className="text-2xl font-bold text-yellow-500 mb-4">
                 DIGITAL METAPEDIA
               </h3>
-              <p className="text-gray-700 max-w-md">
+              <p className="text-white max-w-md">
                 Your partner for digital growth. We create innovative digital
                 marketing strategies that drive results.
               </p>
@@ -1344,7 +1353,7 @@ export default function Home() {
                   <li>
                     <a
                       href="/landingprops/services"
-                      className="text-gray-700 hover:text-yellow-500 transition"
+                      className="text-white hover:text-yellow-500 transition"
                     >
                       Services
                     </a>
@@ -1352,7 +1361,7 @@ export default function Home() {
                   <li>
                     <a
                       href="/landingprops/portfolio"
-                      className="text-gray-700 hover:text-yellow-500 transition"
+                      className="text-white hover:text-yellow-500 transition"
                     >
                       Portfolio
                     </a>
@@ -1360,7 +1369,7 @@ export default function Home() {
                   <li>
                     <a
                       href="/landingprops/about"
-                      className="text-gray-700 hover:text-yellow-500 transition"
+                      className="text-white hover:text-yellow-500 transition"
                     >
                       About Us
                     </a>
@@ -1368,7 +1377,7 @@ export default function Home() {
                   <li>
                     <a
                       href="#contact"
-                      className="text-gray-700 hover:text-yellow-500 transition"
+                      className="text-white hover:text-yellow-500 transition"
                     >
                       Contact
                     </a>
@@ -1382,8 +1391,8 @@ export default function Home() {
                 <ul className="space-y-2">
                   <li>
                     <a
-                      href="/landinprops/services/socialmedia-marketing"
-                      className="text-gray-700 hover:text-yellow-500 transition"
+                      href="/landingprops/services/socialmedia-marketing"
+                      className="text-white hover:text-yellow-500 transition"
                     >
                       Social Media
                     </a>
@@ -1391,7 +1400,7 @@ export default function Home() {
                   <li>
                     <a
                       href="/landingprops/services/digital-marketing"
-                      className="text-gray-700 hover:text-yellow-500 transition"
+                      className="text-white hover:text-yellow-500 transition"
                     >
                       SEO
                     </a>
@@ -1399,7 +1408,7 @@ export default function Home() {
                   <li>
                     <a
                       href="/landingprops/services/ui-ux-design"
-                      className="text-gray-700 hover:text-yellow-500 transition"
+                      className="text-white hover:text-yellow-500 transition"
                     >
                       Content Creation
                     </a>
@@ -1407,7 +1416,7 @@ export default function Home() {
                   <li>
                     <a
                       href="/landingprops/services/digital-marketing"
-                      className="text-gray-700 hover:text-yellow-500 transition"
+                      className="text-white hover:text-yellow-500 transition"
                     >
                       Email Marketing
                     </a>
@@ -1418,7 +1427,7 @@ export default function Home() {
                 <h4 className="text-lg font-semibold mb-4 text-yellow-500">
                   Newsletter
                 </h4>
-                <p className="text-gray-700 mb-4">
+                <p className="text-white mb-4">
                   Stay updated with our latest news and offers.
                 </p>
                 {/* <form className="flex">
@@ -1439,27 +1448,27 @@ export default function Home() {
           </div>
 
           <div className="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-500">
+            <p className="text-white">
               &copy; {new Date().getFullYear()} DIGITAL METAPEDIA. All rights
               reserved.
             </p>
             <div className="mt-4 md:mt-0">
               <div className="flex space-x-4">
                 <a
-                  href="/privacypolicy"
-                  className="text-gray-700 hover:text-yellow-500 transition"
+                  href="/landingprops/privacypolicy"
+                  className="text-white hover:text-yellow-500 transition"
                 >
                   Privacy Policy
                 </a>
                 <a
-                  href="/terms"
-                  className="text-gray-700 hover:text-yellow-500 transition"
+                  href="/landingprops/terms"
+                  className="text-white hover:text-yellow-500 transition"
                 >
                   Terms of Service
                 </a>
                 <a
-                  href="/sitemap"
-                  className="text-gray-700 hover:text-yellow-500 transition"
+                  href="/landingprops/sitemap"
+                  className="text-white hover:text-yellow-500 transition"
                 >
                   Sitemap
                 </a>
