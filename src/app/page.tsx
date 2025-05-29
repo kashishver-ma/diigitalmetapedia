@@ -419,12 +419,12 @@ export default function Home() {
                   >
                     Company
                   </Link>
-                  <Link
+                  {/* <Link
                     href="/landingprops/about/history"
                     className="block px-4 py-2 text-gray-800 hover:bg-red-50 hover:text-red-600"
                   >
                     Our History
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
 
