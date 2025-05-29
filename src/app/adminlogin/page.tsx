@@ -20,7 +20,7 @@ export default function Login() {
       setError("");
       setLoading(true);
       await login(email, password);
-      router.push("/adminlogin/adminlogin/dashboard");
+      router.push("/adminlogin/dashboard");
     } catch (error) {
       setError("Failed to sign in. Please check your credentials.");
       console.error(error);

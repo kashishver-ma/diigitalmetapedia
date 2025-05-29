@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "../../public/dmlogo .jpg";
 import dashboardd from "../../public/adminlogin/dashboard.jpg";
+import Teaser from "./landingprops/teaser/page";
 
 import { Menu, X, ChevronRight, ArrowRight } from "lucide-react";
 import { db } from "../../lib/firebase"; // Make sure the path is correct
@@ -438,6 +439,13 @@ export default function Home() {
                 Contact
               </Link>
 
+              <Link
+                href="/landingprops/teaser"
+                className="text-gray-800 hover:text-red-600 transition-colors"
+              >
+                Teaser
+              </Link>
+
               {/* Admin access - subtle */}
             </div>
           </div>
@@ -706,7 +714,7 @@ export default function Home() {
             <div className="md:w-1/2">
               <div className="relative h-80 md:h-96 w-full overflow-hidden rounded-2xl shadow-xl group">
                 <Image
-                  src="/adminlogin/dashboard.jpg"
+                  src="/dashboard.jpg"
                   alt="Digital Marketing Panels"
                   layout="fill"
                   objectFit="cover"
@@ -1106,11 +1114,21 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
               Get In <span className="text-yellow-500">Touch</span>
             </h2>
-            <div className="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
+
+            <div className="w-24 h-1 flex justify-center bg-red-600 mx-auto mb-6"></div>
             <p className="text-gray-700 max-w-2xl mx-auto">
               Ready to take your digital presence to the next level? Let's talk
               about your project and how we can help.
             </p>
+            <button className=" bg-red-600 text-white px-8 py-3 rounded-lg font-bold shadow-lg hover:bg-red-700 transition-colors flex items-center justify-center">
+              <Link
+                href={"/landingprops/teaser/strategy"}
+                className="flex items-center"
+              >
+                Get Your Free Strategy Now
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
+            </button>
           </div>
 
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
